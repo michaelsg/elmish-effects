@@ -35,7 +35,7 @@ effect module Time where { subscription = MySub } exposing
   , inMilliseconds, inSeconds, inMinutes, inHours
   )
 ```
-All Effects (Subs and Cmds) are divided by Type and dispatched in bulk to the appropriate Effects Manager. The magic comes in how these Effect Types are hidden from the user. Even though `Time.every` creates a message of type Time.MyType the magic subscription function available to effects modules converts the private Effect Type into a Sub of the expected message type. By doing this, the user does not need to wrap each Effect Type in a private message. 
+All Effects (Subs and Cmds) are divided by Type and dispatched in bulk to the appropriate Effects Manager. The magic comes in how these Effect Types are hidden from the user. Even though `Time.every` creates a message of type Time.MySub the magic subscription function available to effects modules converts the private Effect Type into a Sub of the expected message type. By doing this, the user does not need to wrap each Effect Type in a private message. 
 
 Effect Managers are run like small independent program loops. They each have a message queue dealing with their own message type (never exposed to a user program). The runtime maintains a state for each effect manager, passing the state into the 2 callback functions `onEffects` and `onSelfMsg`. Different and telling, these 2 functions return an asynchronously updated state. An init method is also exposed from each effect manager to create its initial state.
 
