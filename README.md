@@ -35,3 +35,4 @@ There are 2 more functions the compiler automatically uses in effects mangers: `
 `onEffects` is called after init and after each update with a `EffectType list`. `onSelfMsg` is like `update` for effect managers. Both of these functions may return a modified state asynchronously.
 
 
+
