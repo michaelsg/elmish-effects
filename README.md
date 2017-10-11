@@ -34,5 +34,5 @@ There are 2 more functions the compiler automatically uses in effects mangers: `
 
 `onEffects` is called after init and after each update with an `EffectType list`. `onSelfMsg` is like `update` for effect managers. Both of these functions may return a modified state asynchronously.
 
-To post messages back to the user program `Platform.sendToApp` is used. `Platform.sendToSelf` is used to equque private messages used by effect managers.
+To post messages back to the user program `Platform.sendToApp` is used. `Platform.sendToSelf` is used to enqueue private messages which will be delivered one-at-a-time to the `onSelfMsg` function.
 
