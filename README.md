@@ -26,3 +26,5 @@ Yes and No. Elm Cmd Effects seem to have a lot to do with asynchrony. In Elmish 
 (Add more here to convince)
 
 # Bring on the Magic
+Effects modules are treated specially in Elm. This is the one instance *I* know of where compiler magic is involved. Effects are grouped by Type. Each effects module declares its Type in the module header. All Effects (Subs and Cmds) are divided by Type and dispatched in bulk to the appropriate Effects Manager. The magic comes in how these Effect Types are hidden from the user. Even though `Time.every` creates a message of type Time.MyType the magic subscription function available to effects modules magically converts the private Effect Type into a Sub of the expected message type. By doing this, the user does not need to wrap each Effect Type in a private message.
+
