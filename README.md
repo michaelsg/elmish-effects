@@ -32,7 +32,7 @@ Effect Managers are run like small independent program loops. They each have a m
 
 There are 2 more functions the compiler automatically uses in effects mangers: `subMap` and `cmdMap`. Calling Cmd.map or Sub.map tranparently calls the correct implementation based on the effect manger that created the Cmd or Sub.
 
-`onEffects` is called after init and after each update with a `EffectType list`. `onSelfMsg` is like `update` for effect managers. Both of these functions may return a modified state asynchronously.
+`onEffects` is called after init and after each update with an `EffectType list`. `onSelfMsg` is like `update` for effect managers. Both of these functions may return a modified state asynchronously.
 
-
+To post messages back to the user program `Platform.sendToApp` is used. `Platform.sendToSelf` is used to equque private messages used by effect managers.
 
